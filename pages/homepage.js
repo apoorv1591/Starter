@@ -1,6 +1,19 @@
+var ccommands = {
+
+	verify: function(client, variablename, callback){
+
+	client.execute("return dataLayer[0].visit.geoLocationCountryCode", function(t){ callback(t);})
+}   
+};
+
+
 module.exports = {
 
-	url: 'http://www.shutterstock.com',
+	commands : [ccommands],
+
+	url: function(parameters){
+		return this.api.launch_url;
+	},
 	
 	elements : {
 
